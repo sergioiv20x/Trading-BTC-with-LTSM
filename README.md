@@ -9,6 +9,7 @@ Special Thanks are given to Phd. Jason Brownlee and his tutorials and books of M
 What you will find:
 
 <space><space>*<space>1- DATA GATHERING:
+ 
 <space><space>*<space>	Tweets: 
 <space><space>*<space>		-Jupyter Notebook used to gather the BITCOIN related tweets thorugh the GetoldTweets3 API
 <space><space>*<space>		-Output_got_2017_X.csv: CSV files of the collected tweets
@@ -19,6 +20,7 @@ What you will find:
 <space><space>*<space>		-two excel files containing the weeks you want to get the google trend scores
 <space><space>*<space>		-output file: "bitcoingtrends.xlsx"
 <space><space>*<space>	Coinmetrics: 	Daily data available  in the coinmetris portal, bitcoin blockchain features and its dictionary.
+ 
 <space><space>*<space>2- DATA EXPLORE:
 <space><space>*<space>	Jupyter Notebook of:
 <space><space>*<space>		visual exploration of gathered data by plotting pairwise relationships
