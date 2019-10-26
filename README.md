@@ -22,20 +22,17 @@ What you will find:
 2- DATA EXPLORE:
  + Jupyter Notebook of:
 >>
-visual exploration of gathered data by plotting pairwise relationships
->>
-correction of erros in gathered data
->>
-correlation scores and the join of all data into a single dataset
->>
-Output file: previous output files joined alltogether wiht the daily coinmetrics data "Dataset_raw.xlsx "
+visual exploration of gathered data by plotting pairwise relationships, correction of erros in gathered data
+, correlation scores and the join of all data into a single dataset
+
+Output file: previous output files joined alltogether wiht the daily coinmetrics data "Dataset_raw.xlsx"
  + NOTE: To the ""Dataset_raw.xlsx"" the R-Studio notebook is used to correct the Gtrend missing values by using spline interpolation. Adittionally we use the Maximal Infomration coefficient(MIC) of the minerva Rlibrary in the R-Studio notebook to identify which features are more useful.
 Final Dataset: "Dataset.xlsx"
 
 3- LTSM Models:
->>After the Definition of 5 different subsets,
->>Within the "Stacked LTSM 2/3 layers" Notebooks, you will find the definition build and predictive performance of the different subsets
->>Within the Encoder-Decoder LTSM notebook, you will fin an ENCODER-DECODER architechture implemented with the Best ranked features.
+  >>After the Definition of 5 different subsets,
+  >>Within the "Stacked LTSM 2/3 layers" Notebooks, you will find the definition build and predictive performance of the different subsets
+  >>Within the Encoder-Decoder LTSM notebook, you will fin an ENCODER-DECODER architechture implemented with the Best ranked features.
 
 RESULTS:
 <space><space>*<space>YES! It is possible to assess better day-trading decisions with models integrating other types of data.
