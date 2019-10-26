@@ -1,0 +1,67 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+```{r}
+# Loading
+library("readxl")
+library("imputeTS")
+library("arsenal")
+library("lubridate")
+library("xlsx")
+library("minerva")
+my_data <- read_excel("Dataset_raw.xlsx")
+Gtrends=ts(my_data[c("Gtrends")])
+plot(Gtrends)
+```
+
+
+```{r}
+#using Spline interpolation for the Googl treds missing values
+statsNA(Gtrends)
+
+```
+```{r}
+Gtrends=na_interpolation(Gtrends, option = "spline")
+plot(Gtrends)
+my_data[["Gtrends"]]=Gtrends
+my_data=data.frame(my_data)
+is.data.frame(my_data)
+write.xlsx(my_data,"Dataset.xlsx",row.names = FALSE,showNA = FALSE)
+```
+```{r}
+#descriptive statistics
+my_controls <- tableby.control(
+  test = T,
+  total = T,
+  numeric.test = "kwt", cat.test = "chisq",
+  numeric.stats = c("meansd", "medianq1q3", "range", "Nmiss2"),
+  cat.stats = c("countpct", "Nmiss2"),
+  stats.labels = list(
+    meansd = "Mean (SD)",
+    medianq1q3 = "Median (Q1, Q3)",
+    range = "Min - Max",
+    Nmiss2 = "Missing"
+  )
+)
+tab <- tableby(~ ., data=my_data[c(2:13)],control=my_controls)
+summary(tab)
+```
+
+```{r}
+#x=matrix(my_data[[0]])
+x=data.matrix(my_data[c(-1,-2)])
+y=matrix(my_data[["Close"]])
+MICs=cstats(x, y, alpha = 0.6, C = 15, est = "mic_approx")
+```
+
