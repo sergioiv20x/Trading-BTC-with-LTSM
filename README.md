@@ -38,4 +38,4 @@ RESULTS:
 <space><space>*<space>YES! It is possible to assess better day-trading decisions with models integrating other types of data.
 <space><space>*<space>This models can be used to asses your crypto-trading.
 <space><space>*<space>Best mix of features: social media and fundamental metrics from the blockchain derive in more robust and more accurate models than the ones using the typical market indicators
- Please refer to my FINAL REPORT  for a better detailed explicaiton of my project. 
+ Please refer to my FINAL REPORT  for a better detailed explication of my project. 
